@@ -5,15 +5,20 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public int hunger;
+    
+
+    public static GameManager instance;
+
+    void Awake(){
+        instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void feedHunger(int amount){
+        hunger -= amount;
+    }
+
+    public void addHunger(int amount){
+        hunger += amount;
     }
 }

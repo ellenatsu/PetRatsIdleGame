@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Mao : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public int curFull;
+    public int maxFull;
+
+    public int hungerToFeed;
+
+    public Image hunerBarFill;
+
+    public void Feed(){
+        curFull++;
+        hunerBarFill.fillAmount = (float)curFull / (float) maxFull;
+
+        if(curFull >= maxFull){
+            FinishMeal();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void FinishMeal(){
+        //
     }
 }
