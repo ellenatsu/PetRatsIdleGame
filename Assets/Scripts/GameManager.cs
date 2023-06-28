@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public int hunger;
+    public int foodTotal = 100;
     
+    public TextMeshProUGUI foodAmountText;
 
     public static GameManager instance;
 
@@ -14,11 +16,13 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
-    public void feedHunger(int amount){
-        hunger -= amount;
+    public void feedPets(int amount){
+        foodTotal -= amount;
+        foodAmountText.text = "Food Left: " + foodTotal.ToString();
     }
 
-    public void addHunger(int amount){
-        hunger += amount;
+    public void addFood(int amount){
+        foodTotal += amount;
+        foodAmountText.text = "Food Left: " + foodTotal.ToString();
     }
 }
